@@ -1,5 +1,5 @@
 <?php
-//file 4: Receive callback data
+//file 4: Receive callback data and saves it in a Json file
 
 include 'dbconnection.php';
 header("Content-Type: application/json");
@@ -18,6 +18,7 @@ $ResultDesc = $data->Body->stkCallback->ResultDesc;
 $Amount = $data->Body->stkCallback->CallbackMetadata->Item[0]->Value;
 $TransactionId = $data->Body->stkCallback->CallbackMetadata->Item[1]->Value;
 $UserPhoneNumber = $data->Body->stkCallback->CallbackMetadata->Item[4]->Value;
+
 //CHECK IF THE TRASACTION WAS SUCCESSFUL 
 if ($ResultCode == 0) {
   //STORE THE TRANSACTION DETAILS IN THE DATABASE
