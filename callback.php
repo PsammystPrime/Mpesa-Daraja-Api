@@ -1,4 +1,6 @@
 <?php
+//file 4: Receive callback data
+
 include 'dbconnection.php';
 header("Content-Type: application/json");
 $stkCallbackResponse = file_get_contents('php://input');
