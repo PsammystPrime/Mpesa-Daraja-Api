@@ -8,7 +8,9 @@ $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processre
 
 //callbackurl connects with mpesa to give you a response after every payment whether failed or succcssfull. Should be hidden.
 //You need to have A SERVER foit to work.
-$callbackurl = 'https://gcrash.com/mpesa/callback.php';
+// $callbackurl = 'https://gcrash.com/mpesa/callback.php';
+$callbackurl = 'https://gcrash.com/0076/src/api/mpesa.php';
+
 // $callbackurl = 'https://1c95-105-161-14-223.ngrok-free.app/MPEsa-Daraja-Api/callback.php';
 $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
 $BusinessShortCode = '174379';
@@ -51,9 +53,9 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
 echo $curl_response = curl_exec($curl);
 
 // //ECHO  RESPONSE
-// $data = json_decode($curl_response);
-// $CheckoutRequestID = $data->CheckoutRequestID;
-// $ResponseCode = $data->ResponseCode;
-// if ($ResponseCode == "0") {
-//   echo "The CheckoutRequestID for this transaction is : " . $CheckoutRequestID;
-// }
+$data = json_decode($curl_response);
+$CheckoutRequestID = $data->CheckoutRequestID;
+$ResponseCode = $data->ResponseCode;
+if ($ResponseCode == "0") {
+  echo "The CheckoutRequestID for this transaction is : " . $CheckoutRequestID;
+}
